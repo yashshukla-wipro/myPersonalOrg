@@ -4,7 +4,7 @@ export default class Child extends LightningElement {
     @api imgSrc;
     connectedCallback()
     {
-        console.log('in child componetnt test');
+        console.log('in child componetnt test 123');
     }
     renderedCallback()
     {
