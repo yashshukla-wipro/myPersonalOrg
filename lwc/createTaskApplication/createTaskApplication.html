@@ -1,0 +1,43 @@
+<template>
+    <div class="timeCSS">
+        {time}<br/>
+        {greeting}
+    </div>
+   <div class="slds-box cardCSS">
+      <h1 style="text-align: center;font-size: x-large;font-weight: 700;">Login Form</h1>
+      <lightning-input type="text" id="firstname" class="slds-size--1-of-3" value={testJSON.firstname} label="First Name" onchange={changeHandler}></lightning-input>
+      <lightning-input type="text" id="secondname" class="slds-size--1-of-3" value={testJSON.secondname} label="Second Name" onchange={changeHandler}></lightning-input>
+      <lightning-input type="Email" id="emailId" class="slds-size--1-of-3" value={testJSON.emailId} label="Email-Id" onchange={changeHandler} placeholder="test@test.com"></lightning-input>
+      <lightning-button label="Submit" onclick={submitHandler}></lightning-button>
+    </div>
+
+    <lightning-button-icon icon-name="utility:add" size="medium" alternative-text="Add" title="Add" onclick={addRow}></lightning-button-icon>
+    <lightning-button-icon icon-name="utility:delete" class="slds-m-left--small" size="medium" alternative-text="Delete" title="Delete" onclick={handleRowDelete}></lightning-button-icon>
+    <lightning-button label="Fetch Phone" class="slds-m-left--small" onclick={handleEmailFetch}></lightning-button>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped tableCustomCSS">
+        <tr class="slds-line-height_reset">
+            <th scope="col"><lightning-input type="checkbox" onchange={handleAllChecked}></lightning-input></th>
+            <th scope="col" class="tableHeadingCustomCSS">Name</th>
+            <th scope="col" class="tableHeadingCustomCSS">Email Id</th>
+            <th scope="col" class="tableHeadingCustomCSS">Phone</th>
+        </tr>
+        <tbody>
+            <template for:each={data} for:item="iterate">
+                <tr key={iterate.Id}  class="slds-line-height_reset">
+                    <td><lightning-input type="checkbox" id={iterate.Id} checked={iterate.checked} onchange={handleSingleCheck}></lightning-input></td>
+                    <td><lightning-input type="text" id={iterate.Id} value={iterate.name} onchange={nameChangeHandler}></lightning-input></td>
+                    <td><lightning-input type="email" id={iterate.Id} value={iterate.email} onchange={emailChangeHandler}></lightning-input></td>
+                    <td><lightning-input type="phone" id={iterate.Id} value={iterate.phone} onchange={phoneChangeHandler}></lightning-input></td>
+                </tr>
+                
+                   
+            </template>
+        </tbody>
+        </table>
+
+        <div>Calling Child Component Method from Parent Component</div>
+        <c-hello-world></c-hello-world>
+       
+    
+
+</template>

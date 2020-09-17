@@ -1,0 +1,46 @@
+<template>
+    <div class="slds-col slds-size_12-of-12 slds-grid slds-wrap case-div">
+                        <div class="slds-col slds-size_3-of-12 case-div-header">Enter Parts Details</div>
+                        <div class="slds-col slds-size_9-of-12 slds-text-align_right">
+                            <lightning-button-icon  class="slds-m-right--small" icon-name="utility:add" alternative-text="Add" onclick={addNewProdInf}></lightning-button-icon>
+                            <lightning-button-icon icon-name="utility:delete" alternative-text="Delete" onclick={removeSelectedRows}></lightning-button-icon>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th scope="col" class="checkbox-th left-th">
+                                            <lightning-input checked={selectAllCheckBox} class="checkbox-div-header" type="checkbox" onchange={handleSelectAllCheckbox}></lightning-input>
+                                        </th>
+                                        <th scope="col" class="product-th middle-th">Product Name*</th>
+                                        <th scope="col" class="product-th middle-th">Product Quantity*</th>
+                                        <th scope="col" class="product-th right-th">Product Description*</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={partDetails} for:item="prodDets">
+                                        <tr key={prodDets.Id}>
+                                            <td>
+                                                <lightning-input checked={prodDets.checkBoxVal} class="checkbox-div" type="checkbox" id={prodDets.Id} onchange={handleCheckboxChange}></lightning-input>
+                                            </td>
+                                            <td>
+                                                <lightning-input type="text" name="product" id={prodDets.Id} variant="label-hidden"
+                                                 onchange={handleProductChange}></lightning-input>
+                                            </td>
+                                            <td>
+                                                <lightning-input type="number" name="qty" id={prodDets.Id} variant="label-hidden" 
+                                                onchange={handleQuantityChange}></lightning-input>
+                                            </td>
+                                            <td>
+                                                <lightning-input type="text" name="desc" id={prodDets.Id} variant="label-hidden" 
+                                                onchange={handleDescriptionChange}></lightning-input>
+                                            </td>
+                                        </tr>
+                                    </template>  
+                                </tbody>
+                            </table>
+                        </div>            
+                    </div>
+                    <lightning-button label="Generate PDF" name="pdf" variant="brand" onclick={generatePDF}></lightning-button>
+    
+</template>

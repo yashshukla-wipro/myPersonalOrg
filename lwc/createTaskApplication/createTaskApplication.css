@@ -1,0 +1,40 @@
+.timeCSS
+{
+    font-size: 47px;
+    font-style: normal;
+    font-weight: bolder;
+    color: cornflowerblue;
+    text-align: center;
+}
+.cardCSS
+{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aliceblue;
+}
+.tableCustomCSS
+{
+    max-width: 62%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 24px;
+    border: solid whitesmoke;
+}
+.tableHeadingCustomCSS
+{
+    text-align: center;
+    font-size: large;
+    font-weight: 700;
+}
+table th
+{
+    border-collapse: collapse;
+    border: solid 1px whitesmoke;
+
+}
+table td{
+    border-collapse: collapse;
+    border: solid 1px whitesmoke;
+
+}
